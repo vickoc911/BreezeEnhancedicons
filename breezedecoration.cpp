@@ -387,7 +387,7 @@ namespace Breeze
         setBorders(bordersFor(w->nextScale()));
 
         // extended sizes
-        const qreal extSize = w->snapToPixelGrid(s->largeSpacing());
+        const qreal extSize = KDecoration3::snapToPixelGrid(s->largeSpacing(), w->nextScale());
         qreal extSides = 0;
         qreal extBottom = 0;
         if (hasNoBorders())
@@ -933,7 +933,7 @@ namespace Breeze
         // On X11, the smallSpacing value is used for scaling.
         // On Wayland, this value has constant factor of 2.
         // Removing it will break radius scaling on X11.
-        m_scaledCornerRadius = window()->snapToPixelGrid(Metrics::Frame_FrameRadius * settings()->smallSpacing());
+        m_scaledCornerRadius = KDecoration3::snapToPixelGrid(Metrics::Frame_FrameRadius * settings()->smallSpacing(), window()->nextScale());
     }
 
     //________________________________________________________________
