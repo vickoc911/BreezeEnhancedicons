@@ -48,6 +48,7 @@ namespace Breeze
         // track ui changes
         connect(m_ui.titleAlignment, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
         connect(m_ui.buttonSize, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()));
+        connect(m_ui.buttonStyle, SIGNAL(currentIndexChanged(int)), SLOT(updateChanged()) );
         connect(m_ui.titleMarginSpinBox, QOverload<int>::of(&QSpinBox::valueChanged), [this](int /*i*/) {updateChanged();});
         connect(m_ui.btnSpacingSpinBox, QOverload<int>::of(&QSpinBox::valueChanged), [this](int /*i*/) {updateChanged();});
         connect(m_ui.drawBackgroundGradient, &QAbstractButton::clicked, this, &ConfigWidget::updateChanged);
@@ -89,6 +90,7 @@ namespace Breeze
         // assign to ui
         m_ui.titleAlignment->setCurrentIndex(m_internalSettings->titleAlignment());
         m_ui.buttonSize->setCurrentIndex(m_internalSettings->buttonSize());
+        m_ui.buttonStyle->setCurrentIndex ( m_internalSettings->buttonStyle() );
         m_ui.titleMarginSpinBox->setValue(m_internalSettings->extraTitleMargin());
         m_ui.btnSpacingSpinBox->setValue(m_internalSettings->buttonSpacing());
         m_ui.drawBackgroundGradient->setChecked(m_internalSettings->drawBackgroundGradient());
@@ -155,6 +157,7 @@ namespace Breeze
         // apply modifications from ui
         m_internalSettings->setTitleAlignment(m_ui.titleAlignment->currentIndex());
         m_internalSettings->setButtonSize(m_ui.buttonSize->currentIndex());
+        m_internalSettings->setButtonStyle( m_ui.buttonStyle->currentIndex() );
         m_internalSettings->setExtraTitleMargin(m_ui.titleMarginSpinBox->value());
         m_internalSettings->setButtonSpacing(m_ui.btnSpacingSpinBox->value());
         m_internalSettings->setDrawBackgroundGradient(m_ui.drawBackgroundGradient->isChecked());
@@ -234,6 +237,7 @@ namespace Breeze
         // assign to ui
         m_ui.titleAlignment->setCurrentIndex(m_internalSettings->titleAlignment());
         m_ui.buttonSize->setCurrentIndex(m_internalSettings->buttonSize());
+        m_ui.buttonStyle->setCurrentIndex( m_internalSettings->buttonStyle() );
         m_ui.titleMarginSpinBox->setValue(m_internalSettings->extraTitleMargin());
         m_ui.btnSpacingSpinBox->setValue(m_internalSettings->buttonSpacing());
         m_ui.drawBackgroundGradient->setChecked(m_internalSettings->drawBackgroundGradient());
@@ -292,6 +296,8 @@ namespace Breeze
         if (m_ui.titleAlignment->currentIndex() != m_internalSettings->titleAlignment())
             modified = true;
         else if (m_ui.buttonSize->currentIndex() != m_internalSettings->buttonSize())
+            modified = true;
+        else if( m_ui.buttonStyle->currentIndex() != m_internalSettings->buttonStyle() )
             modified = true;
         else if (m_ui.titleMarginSpinBox->value() != m_internalSettings->extraTitleMargin())
             modified = true;
