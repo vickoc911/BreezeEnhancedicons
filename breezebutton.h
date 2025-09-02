@@ -108,12 +108,24 @@ namespace Breeze
         explicit Button(KDecoration3::DecorationButtonType type, Decoration *decoration, QObject *parent = nullptr);
 
         //* draw button icon
-        void drawIcon(QPainter *) const;
+        void drawIconPlasma( QPainter *) const;
+        void drawIconGnome( QPainter *) const;
+        void drawIconMacSierra( QPainter *) const;
+        void drawIconMacDarkAurorae( QPainter *) const;
+        void drawIconSBEsierra( QPainter *) const;
+        void drawIconSBEdarkAurorae( QPainter *) const;
+        void drawIconSierraColorSymbols( QPainter *) const;
+        void drawIconDarkAuroraeColorSymbols( QPainter *) const;
+        void drawIconSierraMonochromeSymbols( QPainter *) const;
+        void drawIconDarkAuroraeMonochromeSymbols( QPainter *) const;
 
         //*@name colors
         //@{
-        QColor foregroundColor(const QColor& inactiveCol) const;
+        QColor fontColor() const;
+        QColor foregroundColor() const;
         QColor backgroundColor() const;
+        QColor mixColors(const QColor&, const QColor&, qreal) const;
+        QColor autoColor( const bool, const bool, const bool, const QColor, const QColor ) const;
         //@}
 
         //* active state change animation
