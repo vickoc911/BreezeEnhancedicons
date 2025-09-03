@@ -1575,7 +1575,7 @@ namespace Breeze
                 {
                     if (!d || d->internalSettings()->macOSButtons()) {
                         QLinearGradient grad(QPointF(9, 2), QPointF(9, 16));
-                        if (d && qGray(d->titleBarColor().rgb()) > 100)
+                        if (d && qGray(d->titleBarColor().rgb()) < 100)
                         {
                             grad.setColorAt(0, isInactive ? inactiveCol
                             : QColor(255, 92, 87));
@@ -1602,6 +1602,13 @@ namespace Breeze
                             QPointF c(static_cast<qreal>(9), static_cast<qreal>(9));
                             painter->drawEllipse(c, r, r);
                         }
+                        if (isHovered()) {
+                            painter->setPen(pen);
+                            painter->setBrush(Qt::NoBrush);
+
+                            painter->drawLine(QPointF(5, 5), QPointF(13, 13));
+                            painter->drawLine(QPointF(5, 13), QPointF(13, 5));
+                        }
                     }
                     else {
                         if (backgroundColor.isValid())
@@ -1623,7 +1630,7 @@ namespace Breeze
                 {
                     if (!d || d->internalSettings()->macOSButtons()) {
                         QLinearGradient grad(QPointF(9, 2), QPointF(9, 16));
-                        if (d && qGray(d->titleBarColor().rgb()) > 100)
+                        if (d && qGray(d->titleBarColor().rgb()) < 100)
                         {
                             grad.setColorAt(0, isChecked() ? isInactive ? inactiveCol
                             : QColor(67, 198, 176)
@@ -1705,7 +1712,7 @@ namespace Breeze
                 {
                     if (!d || d->internalSettings()->macOSButtons()) {
                         QLinearGradient grad(QPointF(9, 2), QPointF(9, 16));
-                        if (d && qGray(d->titleBarColor().rgb()) > 100)
+                        if (d && qGray(d->titleBarColor().rgb()) < 100)
                         { // yellow isn't good with light backgrounds
                             grad.setColorAt(0, isInactive ? inactiveCol
                             : QColor(243, 176, 43));
