@@ -1666,18 +1666,33 @@ namespace Breeze
                             painter->drawEllipse(c, r, r);
                         }
                         if (isHovered()) {
-                            pen.setWidthF(1.2*qMax((qreal)1.0, 20/width));
-                            painter->setPen(pen);
-                            painter->setBrush(Qt::NoBrush);
+                            painter->setPen( Qt::NoPen );
 
-                            painter->drawPolyline(QPolygonF()
-                            << QPointF(5, 8) << QPointF(5, 13) << QPointF(10, 13));
-                            if (isChecked())
-                                painter->drawRect(QRectF(8.0, 5.0, 5.0, 5.0));
-                            else {
-                                painter->drawPolyline(QPolygonF()
-                                << QPointF(8, 5) << QPointF(13, 5) << QPointF(13, 10));
+                            // two triangles
+                            QPainterPath path1, path2;
+                            if( isChecked() )
+                            {
+                                path1.moveTo(8.5, 9.5);
+                                path1.lineTo(2.5, 9.5);
+                                path1.lineTo(8.5, 15.5);
+
+                                path2.moveTo(9.5, 8.5);
+                                path2.lineTo(15.5, 8.5);
+                                path2.lineTo(9.5, 2.5);
                             }
+                            else
+                            {
+                                path1.moveTo(5, 13);
+                                path1.lineTo(11, 13);
+                                path1.lineTo(5, 7);
+
+                                path2.moveTo(13, 5);
+                                path2.lineTo(7, 5);
+                                path2.lineTo(13, 11);
+                            }
+
+                            painter->fillPath(path1, QBrush(symbolColor));
+                            painter->fillPath(path2, QBrush(symbolColor));
                         }
                     }
                     else {
