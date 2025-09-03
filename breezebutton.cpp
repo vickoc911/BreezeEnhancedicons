@@ -1606,10 +1606,10 @@ namespace Breeze
                         }
                         if (isHovered()) {
                             painter->setPen(pen);
-                            painter->setBrush(Qt::NoBrush);
+                            painter->setBrush(symbolColor);
 
-                            painter->drawLine(QPointF(5, 5), QPointF(13, 13));
-                            painter->drawLine(QPointF(5, 13), QPointF(13, 5));
+                            painter->drawLine( QPointF( 6, 6 ), QPointF( 12, 12 ) );
+                            painter->drawLine( QPointF( 6, 12 ), QPointF( 12, 6 ) );
                         }
                     }
                     else {
@@ -1759,8 +1759,8 @@ namespace Breeze
                         if (isHovered()) {
                             pen.setWidthF(1.2*qMax((qreal)1.0, 20/width));
                             painter->setPen(pen);
-                            painter->setBrush(Qt::NoBrush);
-                            painter->drawLine(QPointF(4, 9), QPointF(14, 9));
+                            painter->setBrush(symbolColor);
+                            painter->drawLine( QPointF( 5, 9 ), QPointF( 13, 9 ) );
                         }
                     }
                     else {
