@@ -1541,7 +1541,6 @@ namespace Breeze
         // render background
         const QColor backgroundColor(this->backgroundColor());
 
-
         auto d = qobject_cast<Decoration*>(decoration());
         bool isInactive(d && !d->window()->isActive()
         && !isHovered() && !isPressed()
@@ -1557,35 +1556,6 @@ namespace Breeze
             else gray -= 45;
             inactiveCol = QColor(gray, gray, gray);
         }
-
-     //   bool inactiveWindow( d && !d->window()->isActive() );
-    //    bool isMatchTitleBarColor( d && d->internalSettings()->matchColorForTitleBar() );
-
-
-        QColor darkSymbolColor( ( isInactive ) ? QColor(81, 102, 107) : QColor(34, 45, 50) );
-        QColor lightSymbolColor( ( isInactive ) ? QColor(192, 193, 194) : QColor(250, 251, 252) );
-
-        QColor titleBarColor (d->titleBarColor());
-        // symbols color
-
-        QColor symbolColor;
-
-            if ( isInactive && qGray(titleBarColor.rgb()) < 128 )
-                symbolColor = lightSymbolColor;
-            else if ( isInactive && qGray(titleBarColor.rgb()) > 128 )
-                symbolColor = darkSymbolColor;
-            else
-                symbolColor = this->autoColor( false, true, false, darkSymbolColor, lightSymbolColor );
-
-
-        // symbols pen
-
-        QPen symbol_pen( symbolColor );
-        symbol_pen.setJoinStyle( Qt::MiterJoin );
-        if ( d->internalSettings()->animationsEnabled() )
-            symbol_pen.setWidthF( 1.7*qMax((qreal)1.0, 20/width ) );
-        else
-            symbol_pen.setWidthF( 9./7.*1.7*qMax((qreal)1.0, 20/width ) );
 
         // render mark
         const QColor foregroundColor(this->foregroundColor(inactiveCol));
@@ -1603,7 +1573,6 @@ namespace Breeze
 
                 case DecorationButtonType::Close:
                 {
-                    QColor button_color;
                     if (!d || d->internalSettings()->macOSButtons()) {
                         QLinearGradient grad(QPointF(9, 2), QPointF(9, 16));
                         if (d && qGray(d->titleBarColor().rgb()) > 100)
@@ -1620,12 +1589,6 @@ namespace Breeze
                             grad.setColorAt(1, isInactive ? inactiveCol
                             : QColor(230, 92, 94));
                         }
-                        QPen button_pen( qGray(titleBarColor.rgb()) < 69 ? button_color.lighter(115) : button_color.darker(115) );
-                        button_pen.setJoinStyle( Qt::MiterJoin );
-                        if ( d->internalSettings()->animationsEnabled() )
-                            button_pen.setWidthF( PenWidth::Symbol*qMax((qreal)1.0, 20/width ) );
-                        else
-                            button_pen.setWidthF( 9./7.*PenWidth::Symbol*qMax((qreal)1.0, 20/width ) );
                         painter->setBrush(QBrush(grad));
                         painter->setPen(Qt::NoPen);
                         painter->drawEllipse(QRectF(2, 2, 14, 14));
@@ -1652,13 +1615,6 @@ namespace Breeze
 
                         painter->drawLine(QPointF(5, 5), QPointF(13, 13));
                         painter->drawLine(QPointF(5, 13), QPointF(13, 5));
-                    }
-                    if (isHovered())
-                    {
-                        painter->setPen( symbol_pen );
-                        // it's a cross
-                        painter->drawLine( QPointF( 6, 6 ), QPointF( 12, 12 ) );
-                        painter->drawLine( QPointF( 6, 12 ), QPointF( 12, 6 ) );
                     }
                     break;
                 }
@@ -1702,6 +1658,20 @@ namespace Breeze
                             QPointF c(static_cast<qreal>(9), static_cast<qreal>(9));
                             painter->drawEllipse(c, r, r);
                         }
+                        if (isHovered()) {
+                            pen.setWidthF(1.2*qMax((qreal)1.0, 20/width));
+                            painter->setPen(pen);
+                            painter->setBrush(Qt::NoBrush);
+
+                            painter->drawPolyline(QPolygonF()
+                            << QPointF(5, 8) << QPointF(5, 13) << QPointF(10, 13));
+                            if (isChecked())
+                                painter->drawRect(QRectF(8.0, 5.0, 5.0, 5.0));
+                            else {
+                                painter->drawPolyline(QPolygonF()
+                                << QPointF(8, 5) << QPointF(13, 5) << QPointF(13, 10));
+                            }
+                        }
                     }
                     else {
                         if (backgroundColor.isValid())
@@ -1726,35 +1696,7 @@ namespace Breeze
                         }
 
                         if (isHovered())
-                        {
-                            painter->setPen( Qt::NoPen );
-
-                            // two triangles
-                            QPainterPath path1, path2;
-                            if( isChecked() )
-                            {
-                                path1.moveTo(8.5, 9.5);
-                                path1.lineTo(2.5, 9.5);
-                                path1.lineTo(8.5, 15.5);
-
-                                path2.moveTo(9.5, 8.5);
-                                path2.lineTo(15.5, 8.5);
-                                path2.lineTo(9.5, 2.5);
-                            }
-                            else
-                            {
-                                path1.moveTo(5, 13);
-                                path1.lineTo(11, 13);
-                                path1.lineTo(5, 7);
-
-                                path2.moveTo(13, 5);
-                                path2.lineTo(7, 5);
-                                path2.lineTo(13, 11);
-                            }
-
-                            painter->fillPath(path1, QBrush(symbolColor));
-                            painter->fillPath(path2, QBrush(symbolColor));
-                        }
+                            pen.setWidthF(PenWidth::Symbol*qMax((qreal)1.0, 20/width));
                     }
                     break;
                 }
@@ -1789,6 +1731,12 @@ namespace Breeze
                             : static_cast<qreal>(2) * m_animation->currentValue().toReal());
                             QPointF c(static_cast<qreal>(9), static_cast<qreal>(9));
                             painter->drawEllipse(c, r, r);
+                        }
+                        if (isHovered()) {
+                            pen.setWidthF(1.2*qMax((qreal)1.0, 20/width));
+                            painter->setPen(pen);
+                            painter->setBrush(Qt::NoBrush);
+                            painter->drawLine(QPointF(4, 9), QPointF(14, 9));
                         }
                     }
                     else {
