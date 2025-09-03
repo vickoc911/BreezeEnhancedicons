@@ -145,32 +145,9 @@ namespace Breeze
                 w->icon().paint(painter, iconRect.toRect());
             //}
         }
-     else {
+        else
+            drawIcon(painter);
 
-        auto d = qobject_cast<Decoration*>( decoration() );
-
-        if ( d && d->internalSettings()->buttonStyle() == 0 )
-            drawIcon( painter );
-     /*   else if ( d && d->internalSettings()->buttonStyle() == 1 )
-            drawIconGnome( painter );
-        else if ( d && d->internalSettings()->buttonStyle() == 2 )
-            drawIconMacSierra( painter );
-        else if ( d && d->internalSettings()->buttonStyle() == 3 )
-            drawIconMacDarkAurorae( painter );
-        else if ( d && ( d->internalSettings()->buttonStyle() == 4 || d->internalSettings()->buttonStyle() == 5 || d->internalSettings()->buttonStyle() == 6 ) )
-            drawIconSBEsierra( painter );
-        else if ( d && ( d->internalSettings()->buttonStyle() == 7 || d->internalSettings()->buttonStyle() == 8 || d->internalSettings()->buttonStyle() == 9 ) )
-            drawIconSBEdarkAurorae( painter );
-        else if ( d && d->internalSettings()->buttonStyle() == 10 )
-            drawIconSierraColorSymbols( painter );
-        else if ( d && d->internalSettings()->buttonStyle() == 11 )
-            drawIconDarkAuroraeColorSymbols( painter );
-        else if ( d && d->internalSettings()->buttonStyle() == 12 )
-            drawIconSierraMonochromeSymbols( painter );
-        else if ( d && d->internalSettings()->buttonStyle() == 13 )
-            drawIconDarkAuroraeMonochromeSymbols( painter ); */
-
-    }
         painter->restore();
 
     }
@@ -804,8 +781,6 @@ namespace Breeze
         }
 
     }
-
-
 
     //__________________________________________________________________
     QColor Button::foregroundColor(const QColor& inactiveCol) const
