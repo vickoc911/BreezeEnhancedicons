@@ -1557,6 +1557,8 @@ namespace Breeze
             inactiveCol = QColor(gray, gray, gray);
         }
 
+        QColor symbolColor;
+        symbolColor = QColor(34, 45, 50);
         // render mark
         const QColor foregroundColor(this->foregroundColor(inactiveCol));
         if (foregroundColor.isValid())
@@ -1575,7 +1577,7 @@ namespace Breeze
                 {
                     if (!d || d->internalSettings()->macOSButtons()) {
                         QLinearGradient grad(QPointF(9, 2), QPointF(9, 16));
-                        if (d && qGray(d->titleBarColor().rgb()) < 100)
+                        if (d && qGray(d->titleBarColor().rgb()) < 128)
                         {
                             grad.setColorAt(0, isInactive ? inactiveCol
                             : QColor(255, 92, 87));
@@ -1630,7 +1632,7 @@ namespace Breeze
                 {
                     if (!d || d->internalSettings()->macOSButtons()) {
                         QLinearGradient grad(QPointF(9, 2), QPointF(9, 16));
-                        if (d && qGray(d->titleBarColor().rgb()) < 100)
+                        if (d && qGray(d->titleBarColor().rgb()) < 128)
                         {
                             grad.setColorAt(0, isChecked() ? isInactive ? inactiveCol
                             : QColor(67, 198, 176)
@@ -1727,7 +1729,7 @@ namespace Breeze
                 {
                     if (!d || d->internalSettings()->macOSButtons()) {
                         QLinearGradient grad(QPointF(9, 2), QPointF(9, 16));
-                        if (d && qGray(d->titleBarColor().rgb()) < 100)
+                        if (d && qGray(d->titleBarColor().rgb()) < 128)
                         { // yellow isn't good with light backgrounds
                             grad.setColorAt(0, isInactive ? inactiveCol
                             : QColor(243, 176, 43));
