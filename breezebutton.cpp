@@ -1639,7 +1639,7 @@ namespace Breeze
                             QPointF c(static_cast<qreal>(9), static_cast<qreal>(9));
                             painter->drawEllipse(c, r, r);
                         }
-                                            }
+                    }
                     else {
                         if (backgroundColor.isValid())
                         {
@@ -1755,6 +1755,7 @@ namespace Breeze
                             painter->fillPath(path1, QBrush(symbolColor));
                             painter->fillPath(path2, QBrush(symbolColor));
                         }
+                    }
                     break;
                 }
 
