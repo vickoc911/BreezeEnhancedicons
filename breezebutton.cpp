@@ -145,7 +145,7 @@ namespace Breeze
                 w->icon().paint(painter, iconRect.toRect());
             //}
         }
-    } else {
+     else {
 
         auto d = qobject_cast<Decoration*>( decoration() );
 
