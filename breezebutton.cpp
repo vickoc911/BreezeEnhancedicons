@@ -1559,11 +1559,11 @@ namespace Breeze
         }
 
      //   bool inactiveWindow( d && !d->window()->isActive() );
-        bool isMatchTitleBarColor( d && d->internalSettings()->matchColorForTitleBar() );
+    //    bool isMatchTitleBarColor( d && d->internalSettings()->matchColorForTitleBar() );
 
 
-        QColor darkSymbolColor( ( isInactive && isMatchTitleBarColor ) ? QColor(81, 102, 107) : QColor(34, 45, 50) );
-        QColor lightSymbolColor( ( isInactive && isMatchTitleBarColor ) ? QColor(192, 193, 194) : QColor(250, 251, 252) );
+        QColor darkSymbolColor( ( isInactive ) ? QColor(81, 102, 107) : QColor(34, 45, 50) );
+        QColor lightSymbolColor( ( isInactive ) ? QColor(192, 193, 194) : QColor(250, 251, 252) );
 
         QColor titleBarColor (d->titleBarColor());
         // symbols color
@@ -1653,7 +1653,7 @@ namespace Breeze
                         painter->drawLine(QPointF(5, 5), QPointF(13, 13));
                         painter->drawLine(QPointF(5, 13), QPointF(13, 5));
                     }
-                    if ( this->hovered() )
+                    if (isHovered())
                     {
                         painter->setPen( symbol_pen );
                         // it's a cross
@@ -1725,7 +1725,7 @@ namespace Breeze
                             << QPointF(8, 5) << QPointF(13, 5) << QPointF(13, 10));
                         }
 
-                        if ( this->hovered() )
+                        if (isHovered())
                         {
                             painter->setPen( Qt::NoPen );
 
