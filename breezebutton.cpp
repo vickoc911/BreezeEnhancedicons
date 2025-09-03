@@ -1565,7 +1565,7 @@ namespace Breeze
         {
 
             // setup painter
-            QPen pen(foregroundColor);
+            QPen pen(symbolColor);
             pen.setCapStyle(Qt::RoundCap);
             pen.setJoinStyle(Qt::MiterJoin);
             pen.setWidthF(PenWidth::Symbol*qMax((qreal)1.0, 20/width));
