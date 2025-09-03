@@ -147,7 +147,6 @@ namespace Breeze
         }
         else
             drawIcon(painter);
-
         painter->restore();
 
     }
