@@ -82,6 +82,11 @@
       <default>ButtonDefault</default>
     </entry>
 
+    <!-- button style -->
+    <entry name="ButtonStyle" type="Enum">
+      <default>0</default>
+    </entry>
+
     <entry name="ButtonSpacing" type = "Int">
         <default>6</default>
     </entry>
