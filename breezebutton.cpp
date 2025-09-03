@@ -1541,13 +1541,6 @@ namespace Breeze
         // render background
         const QColor backgroundColor(this->backgroundColor());
 
-        bool inactiveWindow( d && !d->window()->isActive() );
-        bool isMatchTitleBarColor( d && d->internalSettings()->matchColorForTitleBar() );
-
-        QColor darkSymbolColor( ( inactiveWindow && isMatchTitleBarColor ) ? QColor(81, 102, 107) : QColor(34, 45, 50) );
-        QColor lightSymbolColor( ( inactiveWindow && isMatchTitleBarColor ) ? QColor(192, 193, 194) : QColor(250, 251, 252) );
-
-        QColor titleBarColor (d->titleBarColor());
 
         auto d = qobject_cast<Decoration*>(decoration());
         bool isInactive(d && !d->window()->isActive()
@@ -1565,13 +1558,21 @@ namespace Breeze
             inactiveCol = QColor(gray, gray, gray);
         }
 
+     //   bool inactiveWindow( d && !d->window()->isActive() );
+        bool isMatchTitleBarColor( d && d->internalSettings()->matchColorForTitleBar() );
+
+
+        QColor darkSymbolColor( ( isInactive && isMatchTitleBarColor ) ? QColor(81, 102, 107) : QColor(34, 45, 50) );
+        QColor lightSymbolColor( ( isInactive && isMatchTitleBarColor ) ? QColor(192, 193, 194) : QColor(250, 251, 252) );
+
+        QColor titleBarColor (d->titleBarColor());
         // symbols color
 
         QColor symbolColor;
 
-            if ( inactiveWindow && qGray(titleBarColor.rgb()) < 128 )
+            if ( isInactive && qGray(titleBarColor.rgb()) < 128 )
                 symbolColor = lightSymbolColor;
-            else if ( inactiveWindow && qGray(titleBarColor.rgb()) > 128 )
+            else if ( isInactive && qGray(titleBarColor.rgb()) > 128 )
                 symbolColor = darkSymbolColor;
             else
                 symbolColor = this->autoColor( false, true, false, darkSymbolColor, lightSymbolColor );
