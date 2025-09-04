@@ -865,7 +865,7 @@ namespace Breeze
                         }
 
                         QColor baseColor;
-                        baseColor = QColor(232, 68, 58);
+                        baseColor = QColor(255, 74, 64);
 
                    //     painter->setRenderHint(QPainter::Antialiasing);
 
@@ -875,7 +875,7 @@ namespace Breeze
                         QPointF cr(static_cast<qreal>(9), static_cast<qreal>(9));
 
                         QRectF c(9,9,r,r); */
-                        QRectF r(0,0, 18, 18);
+                        QRectF r(2,2, 14, 14);
 
                         // --- Degradado principal (radial invertido) ---
                         QRadialGradient base(r.center(), r.width()/2, QPointF(r.center().x(), r.bottom()));
@@ -887,7 +887,7 @@ namespace Breeze
                         painter->drawEllipse(r);
 
                         // --- Highlight superior ovalado (reflejo Aqua) ---
-                        QRectF highlightRect(r.left()+2, r.top()+2, r.width()-4, r.height()/2.2);
+                        QRectF highlightRect(r.left()+2, r.top()+1, r.width()-4, r.height()/2.2);
                         QLinearGradient gloss(highlightRect.topLeft(), highlightRect.bottomLeft());
                         gloss.setColorAt(0.0, QColor(255,255,255,230));
                         gloss.setColorAt(1.0, QColor(255,255,255,0));
