@@ -875,33 +875,33 @@ namespace Breeze
                         QPointF cr(static_cast<qreal>(9), static_cast<qreal>(9));
 
                         QRectF c(9,9,r,r); */
-                        QRectF c(2, 2, 14, 14);
+                        QRectF c(0,0, 18, 18);
 
                         // --- Círculo base con degradado vertical (más realista que radial) ---
                         QLinearGradient base(c.topLeft(), c.bottomLeft());
                         base.setColorAt(0.0, baseColor.lighter(160));  // parte superior clara
                         base.setColorAt(0.5, baseColor);               // color medio
                         base.setColorAt(1.0, baseColor.darker(180));   // parte inferior más oscura
-                        p.setBrush(base);
-                        p.setPen(QColor(0, 0, 0, 80)); // borde suave
-                        p.drawEllipse(c);
+                        painter->setBrush(base);
+                        painter->setPen(QColor(0, 0, 0, 80)); // borde suave
+                        painter->drawEllipse(c);
 
                         // --- Reflejo superior estilo Aqua (ovalado) ---
                         QRectF highlightRect(c.left() + 2, c.top() + 2, c.width() - 4, c.height() / 2.2);
                         QLinearGradient highlight(highlightRect.topLeft(), highlightRect.bottomLeft());
                         highlight.setColorAt(0.0, QColor(255, 255, 255, 220)); // muy brillante arriba
                         highlight.setColorAt(1.0, QColor(255, 255, 255, 0));   // se desvanece
-                        p.setBrush(highlight);
-                        p.setPen(Qt::NoPen);
-                        p.drawEllipse(highlightRect);
+                        painter->setBrush(highlight);
+                        painter->setPen(Qt::NoPen);
+                        painter->drawEllipse(highlightRect);
 
                         // --- Bisel interior (brillo difuso en el borde) ---
                         QRadialGradient inner(c.center(), c.width() / 2);
                         inner.setColorAt(0.0, QColor(255, 255, 255, 40));
                         inner.setColorAt(1.0, QColor(255, 255, 255, 0));
-                        p.setBrush(inner);
-                        p.setPen(Qt::NoPen);
-                        p.drawEllipse(c.adjusted(1, 1, -1, -1));
+                        painter->setBrush(inner);
+                        painter->setPen(Qt::NoPen);
+                        painter->drawEllipse(c.adjusted(1, 1, -1, -1));
 
                         if (backgroundColor.isValid())
                         {
