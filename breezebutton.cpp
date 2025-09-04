@@ -874,7 +874,7 @@ namespace Breeze
                         : static_cast<qreal>(2) * m_animation->currentValue().toReal());
                         QPointF cr(static_cast<qreal>(9), static_cast<qreal>(9));
 
-                        QRectF c(9,9,r,r);
+                        QRectF c(20,20,r,r);
 
                         // --- Sombra exterior ---
                         QRadialGradient shadow(c.center(), c.width()/2, c.center());
