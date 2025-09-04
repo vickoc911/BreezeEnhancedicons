@@ -867,7 +867,11 @@ namespace Breeze
                         QColor baseColor;
                         baseColor = QColor(255, 74, 64);
 
-                        QRectF r(2,2, 14, 14);
+
+                        painter->setBrush(QColor("#cb3636"));
+                        painter->drawEllipse(QRectF(2,2,14,14));
+
+                        QRectF r(3,3, 13, 13);
 
                         // --- Degradado principal (radial invertido) ---
                         QRadialGradient base(r.center(), r.width()/2, QPointF(r.center().x(), r.bottom()));
@@ -895,15 +899,15 @@ namespace Breeze
                         painter->setPen(Qt::NoPen);
                         painter->drawEllipse(r);
 
-                        painter->setBrush(QColor("#e1463f"));
-                        painter->drawEllipse(QRectF(2,2,14,14));
-
                         if (backgroundColor.isValid())
                         {
                             QColor baseColor;
                             baseColor = QColor(255, 74, 64);
 
-                            QRectF r(0,0, 18, 18);
+                            painter->setBrush(QColor("#cb3636"));
+                            painter->drawEllipse(QRectF(0,0 , 18, 18));
+
+                            QRectF r(1,1, 17, 17);
 
                             // --- Degradado principal (radial invertido) ---
                             QRadialGradient base(r.center(), r.width()/2, QPointF(r.center().x(), r.bottom()));
@@ -931,8 +935,6 @@ namespace Breeze
                             painter->setPen(Qt::NoPen);
                             painter->drawEllipse(r);
 
-                            painter->setBrush(QColor("#e1463f"));
-                            painter->drawEllipse(QRectF(0,0 , 18, 18));
                         }
                         if (isHovered()) {
                             painter->setPen(pen);
@@ -987,6 +989,9 @@ namespace Breeze
                         QColor baseColor;
                         baseColor = QColor(39, 201, 63);
 
+                        painter->setBrush(QColor("#1d9221"));
+                        painter->drawEllipse(QRectF(2,2,14,14));
+
                         QRectF r(2,2, 14, 14);
 
                         // --- Degradado principal (radial invertido) ---
@@ -1015,16 +1020,13 @@ namespace Breeze
                         painter->setPen(Qt::NoPen);
                         painter->drawEllipse(r);
 
-                        painter->setBrush(QColor("#e1463f"));
-                        painter->drawEllipse(QRectF(2,2,14,14));
-
                         if (backgroundColor.isValid())
                         {
                             QColor baseColor;
                             baseColor = QColor(39, 201, 63);
 
                             QRectF r(0,0, 18, 18);
-                            painter->setBrush(QColor("#e1463f"));
+                            painter->setBrush(QColor("#1d9221"));
                             painter->drawEllipse(QRectF(0,0 , 18, 18));
 
                             // --- Degradado principal (radial invertido) ---
