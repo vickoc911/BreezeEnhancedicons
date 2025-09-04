@@ -110,7 +110,7 @@ namespace Breeze
         //* draw button icon
         void drawIcon(QPainter *) const;
         void drawIconPlasma( QPainter *) const;
-        void drawIconGnome( QPainter *) const;
+        void drawIconAqua( QPainter *) const;
         void drawIconMacSierra( QPainter *) const;
         void drawIconMacDarkAurorae( QPainter *) const;
         void drawIconSBEsierra( QPainter *) const;

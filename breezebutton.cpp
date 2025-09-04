@@ -154,7 +154,7 @@ namespace Breeze
             if ( d && d->internalSettings()->buttonStyle() == 0 )
                 drawIcon(painter);
             else if ( d && d->internalSettings()->buttonStyle() == 1 )
-                drawIconSierraColorSymbols( painter );
+                drawIconAqua( painter );
             else if ( d && d->internalSettings()->buttonStyle() == 2 )
                 drawIconMacSierra( painter );
             }
@@ -794,7 +794,7 @@ namespace Breeze
 
 
     //__________________________________________________________________
-    void Button::drawIconSierraColorSymbols( QPainter *painter ) const
+    void Button::drawIconAqua( QPainter *painter ) const
     {
         painter->setRenderHints(QPainter::Antialiasing);
 
