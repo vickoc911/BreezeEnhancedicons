@@ -874,7 +874,7 @@ namespace Breeze
                         : static_cast<qreal>(2) * m_animation->currentValue().toReal());
                         QPointF cr(static_cast<qreal>(9), static_cast<qreal>(9));
 
-                        QRectF c(cr,r,r);
+                        QRectF c(9,9,r,r);
 
                         // --- Sombra exterior ---
                         QRadialGradient shadow(c.center(), c.width()/2, c.center());
@@ -892,7 +892,7 @@ namespace Breeze
                         radial.setColorAt(1.0, baseColor.darker(180));   // borde más oscuro
                         painter->setBrush(radial);
                         painter->setPen(QColor(0,0,0,100));
-                        painter->drawEllipse(c, r, r);
+                        painter->drawEllipse(c);
 
                         // --- Reflejo superior (efecto Aqua) ---
                         QLinearGradient gloss(c.topLeft(), c.bottomLeft());
