@@ -875,33 +875,33 @@ namespace Breeze
                         QPointF cr(static_cast<qreal>(9), static_cast<qreal>(9));
 
                         QRectF c(9,9,r,r); */
-                        QRectF c(0,0, 18, 18);
+                        QRectF r(0,0, 18, 18);
 
-                        // --- Círculo base con degradado vertical (más realista que radial) ---
-                        QLinearGradient base(c.topLeft(), c.bottomLeft());
-                        base.setColorAt(0.0, baseColor.lighter(160));  // parte superior clara
-                        base.setColorAt(0.5, baseColor);               // color medio
-                        base.setColorAt(1.0, baseColor.darker(180));   // parte inferior más oscura
+                        // --- Degradado principal (radial invertido) ---
+                        QRadialGradient base(r.center(), r.width()/2, QPointF(r.center().x(), r.bottom()));
+                        base.setColorAt(0.0, baseColor.lighter(140));   // parte baja brillante
+                        base.setColorAt(0.6, baseColor);
+                        base.setColorAt(1.0, baseColor.darker(180));    // borde oscuro
                         painter->setBrush(base);
-                        painter->setPen(QColor(0, 0, 0, 80)); // borde suave
-                        painter->drawEllipse(c);
+                        painter->setPen(QColor(0,0,0,80));
+                        painter->drawEllipse(r);
 
-                        // --- Reflejo superior estilo Aqua (ovalado) ---
-                        QRectF highlightRect(c.left() + 2, c.top() + 2, c.width() - 4, c.height() / 2.2);
-                        QLinearGradient highlight(highlightRect.topLeft(), highlightRect.bottomLeft());
-                        highlight.setColorAt(0.0, QColor(255, 255, 255, 220)); // muy brillante arriba
-                        highlight.setColorAt(1.0, QColor(255, 255, 255, 0));   // se desvanece
-                        painter->setBrush(highlight);
+                        // --- Highlight superior ovalado (reflejo Aqua) ---
+                        QRectF highlightRect(r.left()+2, r.top()+2, r.width()-4, r.height()/2.2);
+                        QLinearGradient gloss(highlightRect.topLeft(), highlightRect.bottomLeft());
+                        gloss.setColorAt(0.0, QColor(255,255,255,230));
+                        gloss.setColorAt(1.0, QColor(255,255,255,0));
+                        painter->setBrush(gloss);
                         painter->setPen(Qt::NoPen);
                         painter->drawEllipse(highlightRect);
 
-                        // --- Bisel interior (brillo difuso en el borde) ---
-                        QRadialGradient inner(c.center(), c.width() / 2);
-                        inner.setColorAt(0.0, QColor(255, 255, 255, 40));
-                        inner.setColorAt(1.0, QColor(255, 255, 255, 0));
-                        painter->setBrush(inner);
+                        // --- Sombra inferior sutil ---
+                        QLinearGradient shadow(r.topLeft(), r.bottomLeft());
+                        shadow.setColorAt(0.0, QColor(0,0,0,0));
+                        shadow.setColorAt(1.0, QColor(0,0,0,80));
+                        painter->setBrush(shadow);
                         painter->setPen(Qt::NoPen);
-                        painter->drawEllipse(c.adjusted(1, 1, -1, -1));
+                        painter->drawEllipse(r);
 
                         if (backgroundColor.isValid())
                         {
