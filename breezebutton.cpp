@@ -877,41 +877,31 @@ namespace Breeze
                         QRectF c(9,9,r,r); */
                         QRectF c(2, 2, 14, 14);
 
-                        QRadialGradient shadow(c.center(), c.width()/2, c.center());
-                        shadow.setColorAt(0.0, QColor(0, 0, 0, 50));
-                        shadow.setColorAt(1.0, QColor(0, 0, 0, 120));
-                        painter->setBrush(shadow);
-                        painter->setPen(Qt::NoPen);
-                        painter->drawEllipse(c.adjusted(-1, -1, 1, 1));
-                        //   painter->drawEllipse(c, r, r);
+                        // --- Círculo base con degradado vertical (más realista que radial) ---
+                        QLinearGradient base(c.topLeft(), c.bottomLeft());
+                        base.setColorAt(0.0, baseColor.lighter(160));  // parte superior clara
+                        base.setColorAt(0.5, baseColor);               // color medio
+                        base.setColorAt(1.0, baseColor.darker(180));   // parte inferior más oscura
+                        p.setBrush(base);
+                        p.setPen(QColor(0, 0, 0, 80)); // borde suave
+                        p.drawEllipse(c);
 
-                        // --- Círculo base con degradado radial ---
-                        QRadialGradient radial(c.center(), c.width()/2, c.center());
-                        radial.setColorAt(0.0, baseColor.lighter(180));  // centro brillante
-                        radial.setColorAt(0.6, baseColor);
-                        radial.setColorAt(1.0, baseColor.darker(180));   // borde más oscuro
-                        painter->setBrush(radial);
-                        painter->setPen(QColor(0,0,0,100));
-                        painter->drawEllipse(c);
+                        // --- Reflejo superior estilo Aqua (ovalado) ---
+                        QRectF highlightRect(c.left() + 2, c.top() + 2, c.width() - 4, c.height() / 2.2);
+                        QLinearGradient highlight(highlightRect.topLeft(), highlightRect.bottomLeft());
+                        highlight.setColorAt(0.0, QColor(255, 255, 255, 220)); // muy brillante arriba
+                        highlight.setColorAt(1.0, QColor(255, 255, 255, 0));   // se desvanece
+                        p.setBrush(highlight);
+                        p.setPen(Qt::NoPen);
+                        p.drawEllipse(highlightRect);
 
-                        // --- Reflejo superior (efecto Aqua) ---
-                        QLinearGradient gloss(c.topLeft(), c.bottomLeft());
-                        gloss.setColorAt(0.0, QColor(255, 255, 255, 200));
-                        gloss.setColorAt(0.5, QColor(255, 255, 255, 100));
-                        gloss.setColorAt(1.0, QColor(255, 255, 255, 0));
-
-                        QRectF topHalf(c.left(), c.top(), c.width(), c.height()/1.6);
-                        painter->setBrush(gloss);
-                        painter->setPen(Qt::NoPen);
-                        painter->drawEllipse(topHalf);
-
-                        // --- Bisel interior claro ---
-                        QRadialGradient innerHighlight(c.center(), c.width()/2, c.center());
-                        innerHighlight.setColorAt(0.0, QColor(255, 255, 255, 80));
-                        innerHighlight.setColorAt(1.0, QColor(255, 255, 255, 0));
-                        painter->setBrush(innerHighlight);
-                        painter->setPen(Qt::NoPen);
-                        painter->drawEllipse(c.adjusted(2, 2, -2, -2));
+                        // --- Bisel interior (brillo difuso en el borde) ---
+                        QRadialGradient inner(c.center(), c.width() / 2);
+                        inner.setColorAt(0.0, QColor(255, 255, 255, 40));
+                        inner.setColorAt(1.0, QColor(255, 255, 255, 0));
+                        p.setBrush(inner);
+                        p.setPen(Qt::NoPen);
+                        p.drawEllipse(c.adjusted(1, 1, -1, -1));
 
                         if (backgroundColor.isValid())
                         {
