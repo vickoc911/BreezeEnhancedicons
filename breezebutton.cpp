@@ -901,6 +901,8 @@ namespace Breeze
                             baseColor = QColor(255, 74, 64);
 
                             QRectF r(0,0, 18, 18);
+                            painter->setBrush(QColor("#e1463f"));
+                            painter->drawEllipse(QRectF(0,0 , 19, 19));
 
                             // --- Degradado principal (radial invertido) ---
                             QRadialGradient base(r.center(), r.width()/2, QPointF(r.center().x(), r.bottom()));
@@ -1011,13 +1013,38 @@ namespace Breeze
 
                         if (backgroundColor.isValid())
                         {
+                            QColor baseColor;
+                            baseColor = QColor(39, 201, 63);
+
+                            QRectF r(0,0, 18, 18);
+                            painter->setBrush(QColor("#e1463f"));
+                            painter->drawEllipse(QRectF(0,0 , 19, 19));
+
+                            // --- Degradado principal (radial invertido) ---
+                            QRadialGradient base(r.center(), r.width()/2, QPointF(r.center().x(), r.bottom()));
+                            base.setColorAt(0.0, baseColor.lighter(140));   // parte baja brillante
+                            base.setColorAt(0.6, baseColor);
+                            base.setColorAt(1.0, baseColor.darker(180));    // borde oscuro
+                            painter->setBrush(base);
+                            painter->setPen(QColor(0,0,0,80));
+                            painter->drawEllipse(r);
+
+                            // --- Highlight superior ovalado (reflejo Aqua) ---
+                            QRectF highlightRect(r.left()+2, r.top()+1, r.width()-4, r.height()/2.2);
+                            QLinearGradient gloss(highlightRect.topLeft(), highlightRect.bottomLeft());
+                            gloss.setColorAt(0.0, QColor(255,255,255,230));
+                            gloss.setColorAt(1.0, QColor(255,255,255,0));
+                            painter->setBrush(gloss);
                             painter->setPen(Qt::NoPen);
-                            painter->setBrush(backgroundColor);
-                            qreal r = static_cast<qreal>(7)
-                            + (isPressed() ? 0.0
-                            : static_cast<qreal>(2) * m_animation->currentValue().toReal());
-                            QPointF c(static_cast<qreal>(9), static_cast<qreal>(9));
-                            painter->drawEllipse(c, r, r);
+                            painter->drawEllipse(highlightRect);
+
+                            // --- Sombra inferior sutil ---
+                            QLinearGradient shadow(r.topLeft(), r.bottomLeft());
+                            shadow.setColorAt(0.0, QColor(0,0,0,0));
+                            shadow.setColorAt(1.0, QColor(0,0,0,80));
+                            painter->setBrush(shadow);
+                            painter->setPen(Qt::NoPen);
+                            painter->drawEllipse(r);
                         }
                         if (isHovered()) {
                             painter->setPen( Qt::NoPen );
@@ -1128,13 +1155,36 @@ namespace Breeze
 
                         if (backgroundColor.isValid())
                         {
+                            QColor baseColor;
+                            baseColor = QColor(255, 189, 46);
+
+                            QRectF r(0,0, 18, 18);
+
+                            // --- Degradado principal (radial invertido) ---
+                            QRadialGradient base(r.center(), r.width()/2, QPointF(r.center().x(), r.bottom()));
+                            base.setColorAt(0.0, baseColor.lighter(140));   // parte baja brillante
+                            base.setColorAt(0.6, baseColor);
+                            base.setColorAt(1.0, baseColor.darker(180));    // borde oscuro
+                            painter->setBrush(base);
+                            painter->setPen(QColor(0,0,0,80));
+                            painter->drawEllipse(r);
+
+                            // --- Highlight superior ovalado (reflejo Aqua) ---
+                            QRectF highlightRect(r.left()+2, r.top()+1, r.width()-4, r.height()/2.2);
+                            QLinearGradient gloss(highlightRect.topLeft(), highlightRect.bottomLeft());
+                            gloss.setColorAt(0.0, QColor(255,255,255,230));
+                            gloss.setColorAt(1.0, QColor(255,255,255,0));
+                            painter->setBrush(gloss);
                             painter->setPen(Qt::NoPen);
-                            painter->setBrush(backgroundColor);
-                            qreal r = static_cast<qreal>(7)
-                            + (isPressed() ? 0.0
-                            : static_cast<qreal>(2) * m_animation->currentValue().toReal());
-                            QPointF c(static_cast<qreal>(9), static_cast<qreal>(9));
-                            painter->drawEllipse(c, r, r);
+                            painter->drawEllipse(highlightRect);
+
+                            // --- Sombra inferior sutil ---
+                            QLinearGradient shadow(r.topLeft(), r.bottomLeft());
+                            shadow.setColorAt(0.0, QColor(0,0,0,0));
+                            shadow.setColorAt(1.0, QColor(0,0,0,80));
+                            painter->setBrush(shadow);
+                            painter->setPen(Qt::NoPen);
+                            painter->drawEllipse(r);
                         }
                         if (isHovered()) {
                             pen.setWidthF(1.2*qMax((qreal)1.0, 20/width));
