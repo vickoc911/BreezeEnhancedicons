@@ -869,7 +869,7 @@ namespace Breeze
 
                         painter->setRenderHint(QPainter::Antialiasing);
 
-                        QRect r = rect().adjusted(2, 2, -2, -2);
+                        QRectF r = QRectF(rect()).adjusted(2, 2, -2, -2);
 
                         // --- Sombra exterior ---
                         QRadialGradient shadow(r.center(), r.width()/2, r.center());
