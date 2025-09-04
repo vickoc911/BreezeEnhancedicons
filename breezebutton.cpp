@@ -865,7 +865,7 @@ namespace Breeze
                         }
 
                         QColor baseColor;
-                        basecolor = QColor(232, 68, 58);
+                        baseColor = QColor(232, 68, 58);
 
                         pen.setRenderHint(QPainter::Antialiasing);
 
