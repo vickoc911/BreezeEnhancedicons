@@ -852,16 +852,16 @@ namespace Breeze
                         if (d && qGray(d->titleBarColor().rgb()) < 128)
                         {
                             grad.setColorAt(0, isInactive ? inactiveCol
-                            : QColor(255, 92, 87));
+                            : QColor(255, 74, 64));
                             grad.setColorAt(1, isInactive ? inactiveCol
-                            : QColor(233, 84, 79));
+                            : QColor(255, 74, 64));
                         }
                         else
                         {
                             grad.setColorAt(0, isInactive ? inactiveCol
-                            : QColor(250, 100, 102));
+                            : QColor(255, 74, 64));
                             grad.setColorAt(1, isInactive ? inactiveCol
-                            : QColor(230, 92, 94));
+                            : QColor(255, 74, 64));
                         }
 
                         QColor baseColor;
@@ -904,9 +904,9 @@ namespace Breeze
 
                             // --- Degradado principal (radial invertido) ---
                             QRadialGradient base(r.center(), r.width()/2, QPointF(r.center().x(), r.bottom()));
-                            base.setColorAt(0.0, baseColor.lighter(140));   // parte baja brillante
+                            base.setColorAt(0.0, baseColor.lighter(100));   // parte baja brillante
                             base.setColorAt(0.6, baseColor);
-                            base.setColorAt(1.0, baseColor.darker(180));    // borde oscuro
+                            base.setColorAt(1.0, baseColor.darker(140));    // borde oscuro
                             painter->setBrush(base);
                             painter->setPen(QColor(0,0,0,80));
                             painter->drawEllipse(r);
@@ -962,11 +962,11 @@ namespace Breeze
                             grad.setColorAt(0, isChecked() ? isInactive ? inactiveCol
                             : QColor(67, 198, 176)
                             : isInactive ? inactiveCol
-                            : QColor(40, 211, 63));
+                            : QColor(39, 201, 63));
                             grad.setColorAt(1, isChecked() ? isInactive ? inactiveCol
                             : QColor(60, 178, 159)
                             : isInactive ? inactiveCol
-                            : QColor(36, 191, 57));
+                            : QColor(39, 201, 63));
                         }
                         else
                         {
@@ -986,9 +986,9 @@ namespace Breeze
 
                         // --- Degradado principal (radial invertido) ---
                         QRadialGradient base(r.center(), r.width()/2, QPointF(r.center().x(), r.bottom()));
-                        base.setColorAt(0.0, baseColor.lighter(140));   // parte baja brillante
+                        base.setColorAt(0.0, baseColor.lighter(100));   // parte baja brillante
                         base.setColorAt(0.6, baseColor);
-                        base.setColorAt(1.0, baseColor.darker(180));    // borde oscuro
+                        base.setColorAt(1.0, baseColor.darker(140));    // borde oscuro
                         painter->setBrush(base);
                         painter->setPen(QColor(0,0,0,80));
                         painter->drawEllipse(r);
@@ -1019,9 +1019,9 @@ namespace Breeze
 
                             // --- Degradado principal (radial invertido) ---
                             QRadialGradient base(r.center(), r.width()/2, QPointF(r.center().x(), r.bottom()));
-                            base.setColorAt(0.0, baseColor.lighter(140));   // parte baja brillante
+                            base.setColorAt(0.0, baseColor.lighter(100));   // parte baja brillante
                             base.setColorAt(0.6, baseColor);
-                            base.setColorAt(1.0, baseColor.darker(180));    // borde oscuro
+                            base.setColorAt(1.0, baseColor.darker(140));    // borde oscuro
                             painter->setBrush(base);
                             painter->setPen(QColor(0,0,0,80));
                             painter->drawEllipse(r);
@@ -1108,16 +1108,16 @@ namespace Breeze
                         if (d && qGray(d->titleBarColor().rgb()) < 128)
                         { // yellow isn't good with light backgrounds
                             grad.setColorAt(0, isInactive ? inactiveCol
-                            : QColor(243, 176, 43));
+                            : QColor(255, 189, 46));
                             grad.setColorAt(1, isInactive ? inactiveCol
-                            : QColor(223, 162, 39));
+                            : QColor(255, 189, 46));
                         }
                         else
                         {
                             grad.setColorAt(0, isInactive ? inactiveCol
-                            : QColor(237, 198, 81));
+                            : QColor(255, 189, 46));
                             grad.setColorAt(1, isInactive ? inactiveCol
-                            : QColor(217, 181, 74));
+                            : QColor(255, 189, 46));
                         }
                         QColor baseColor;
                         baseColor = QColor(255, 189, 46);
@@ -1159,9 +1159,9 @@ namespace Breeze
 
                             // --- Degradado principal (radial invertido) ---
                             QRadialGradient base(r.center(), r.width()/2, QPointF(r.center().x(), r.bottom()));
-                            base.setColorAt(0.0, baseColor.lighter(140));   // parte baja brillante
+                            base.setColorAt(0.0, baseColor.lighter(100));   // parte baja brillante
                             base.setColorAt(0.6, baseColor);
-                            base.setColorAt(1.0, baseColor.darker(180));    // borde oscuro
+                            base.setColorAt(1.0, baseColor.darker(140));    // borde oscuro
                             painter->setBrush(base);
                             painter->setPen(QColor(0,0,0,80));
                             painter->drawEllipse(r);
