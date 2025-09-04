@@ -895,14 +895,15 @@ namespace Breeze
                         painter->setPen(Qt::NoPen);
                         painter->drawEllipse(r);
 
+                        painter->setBrush(QColor("#e1463f"));
+                        painter->drawEllipse(QRectF(2,2,14,14));
+
                         if (backgroundColor.isValid())
                         {
                             QColor baseColor;
                             baseColor = QColor(255, 74, 64);
 
                             QRectF r(0,0, 18, 18);
-                            painter->setBrush(QColor("#e1463f"));
-                            painter->drawEllipse(QRectF(0,0 , 19, 19));
 
                             // --- Degradado principal (radial invertido) ---
                             QRadialGradient base(r.center(), r.width()/2, QPointF(r.center().x(), r.bottom()));
@@ -929,6 +930,9 @@ namespace Breeze
                             painter->setBrush(shadow);
                             painter->setPen(Qt::NoPen);
                             painter->drawEllipse(r);
+
+                            painter->setBrush(QColor("#e1463f"));
+                            painter->drawEllipse(QRectF(0,0 , 18, 18));
                         }
                         if (isHovered()) {
                             painter->setPen(pen);
@@ -1011,6 +1015,9 @@ namespace Breeze
                         painter->setPen(Qt::NoPen);
                         painter->drawEllipse(r);
 
+                        painter->setBrush(QColor("#e1463f"));
+                        painter->drawEllipse(QRectF(2,2,14,14));
+
                         if (backgroundColor.isValid())
                         {
                             QColor baseColor;
@@ -1018,7 +1025,7 @@ namespace Breeze
 
                             QRectF r(0,0, 18, 18);
                             painter->setBrush(QColor("#e1463f"));
-                            painter->drawEllipse(QRectF(0,0 , 19, 19));
+                            painter->drawEllipse(QRectF(0,0 , 18, 18));
 
                             // --- Degradado principal (radial invertido) ---
                             QRadialGradient base(r.center(), r.width()/2, QPointF(r.center().x(), r.bottom()));
