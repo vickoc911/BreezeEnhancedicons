@@ -892,7 +892,7 @@ namespace Breeze
                         radial.setColorAt(1.0, baseColor.darker(180));   // borde más oscuro
                         painter->setBrush(radial);
                         painter->setPen(QColor(0,0,0,100));
-                        painter->drawEllipse(c);
+                        painter->drawEllipse(rect);
 
                         // --- Reflejo superior (efecto Aqua) ---
                         QLinearGradient gloss(rect.topLeft(), rect.bottomLeft());
