@@ -135,7 +135,7 @@
          </item>
          <item>
           <property name="text">
-           <string>Gnome</string>
+           <string>MacOSX</string>
           </property>
          </item>
          <item>
@@ -145,57 +145,7 @@
          </item>
          <item>
           <property name="text">
-           <string>macOS Dark Aurorae</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>SBE Sierra</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>SBE Sierra Active</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>SBE Sierra Inactive</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>SBE Dark Aurorae</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>SBE Dark Aurorae Active</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>SBE Dark Aurorae Inactive</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Sierra Color Symbols</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Dark Aurorae Color Symbols</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Sierra Monochrome Symbols</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Dark Aurorae Monochrome Symbols</string>
+           <string>Aqua</string>
           </property>
          </item>
         </widget>
