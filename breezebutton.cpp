@@ -601,6 +601,9 @@ namespace Breeze
             inactiveCol = QColor(gray, gray, gray);
         }
 
+        QColor symbolColor;
+        symbolColor = QColor(34, 45, 50);
+
         // render mark
         const QColor foregroundColor(this->foregroundColor(inactiveCol));
         if (foregroundColor.isValid())
@@ -624,7 +627,7 @@ namespace Breeze
                             painter->drawEllipse(QRectF(0, 0, 18, 18));
                         }
                         painter->setPen(pen);
-                        painter->setBrush(Qt::NoBrush);
+                        painter->setBrush(symbolColor);
 
                         painter->drawLine(QPointF(5, 5), QPointF(13, 13));
                         painter->drawLine(QPointF(5, 13), QPointF(13, 5));
@@ -644,7 +647,7 @@ namespace Breeze
                         if (isHovered())
                             pen.setWidthF(1.2*qMax((qreal)1.0, 20/width));
                         painter->setPen(pen);
-                        painter->setBrush(Qt::NoBrush);
+                        painter->setBrush(symbolColor);
 
                         painter->drawPolyline(QPolygonF()
                         << QPointF(5, 8) << QPointF(5, 13) << QPointF(10, 13));
@@ -673,7 +676,7 @@ namespace Breeze
                         if (isHovered())
                             pen.setWidthF(1.2*qMax((qreal)1.0, 20/width));
                         painter->setPen(pen);
-                        painter->setBrush(Qt::NoBrush);
+                        painter->setBrush(symbolColor);
 
                         painter->drawLine(QPointF(4, 9), QPointF(14, 9));
 
