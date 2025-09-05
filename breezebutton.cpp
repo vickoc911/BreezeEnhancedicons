@@ -880,7 +880,7 @@ namespace Breeze
 
                         QColor baseColor;
 
-                        if ( !isInactive && qGray(titleBarColor.rgb()) < 128 )
+                        if ( !isInactive && qGray(d->titleBarColor().rgb()) > 100 )
                             baseColor = QColor(255, 92, 87);
                         else if( isInactive )
                             baseColor = inactiveCol;
