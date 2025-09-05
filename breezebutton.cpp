@@ -914,7 +914,7 @@ namespace Breeze
                         painter->drawEllipse(r);
 
                         // --- Bisel interior claro ---
-                        QRectF highlightRectb(r.left()+4, r.bottom()-2, r.width()-4, 6);
+                        QRectF highlightRectb(r.left()+2, r.top()+r.height()/1.9, r.width()-4, r.height()/2.2);
                         QRadialGradient innerHighlight(r.center(), r.width()/2, r.center());
                         innerHighlight.setColorAt(0.0, QColor(255, 255, 255, 250));
                         innerHighlight.setColorAt(1.0, QColor(255, 255, 255, 0));
@@ -960,7 +960,7 @@ namespace Breeze
                             painter->drawEllipse(r);
 
                             // --- Bisel interior claro ---
-                            QRectF highlightRectb(r.left()+4, r.bottom()-2, r.width()-4, 6);
+                            QRectF highlightRectb(r.left()+2, r.top()+r.height()/1.9, r.width()-4, r.height()/2.2);
                             QRadialGradient innerHighlight(r.center(), r.width()/2, r.center());
                             innerHighlight.setColorAt(0.0, QColor(255, 255, 255, 250));
                             innerHighlight.setColorAt(1.0, QColor(255, 255, 255, 0));
