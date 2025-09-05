@@ -918,9 +918,9 @@ namespace Breeze
                         QRadialGradient innerHighlight(r.center(), r.width()/2, r.center());
                         innerHighlight.setColorAt(0.0, QColor(255, 255, 255, 80));
                         innerHighlight.setColorAt(1.0, QColor(255, 255, 255, 0));
-                        p.setBrush(innerHighlight);
-                        p.setPen(Qt::NoPen);
-                        p.drawEllipse(r.adjusted(2, 2, -2, -2));
+                        painter->setBrush(innerHighlight);
+                        painter->setPen(Qt::NoPen);
+                        painter->drawEllipse(r.adjusted(2, 2, -2, -2));
 
                         if (backgroundColor.isValid())
                         {
