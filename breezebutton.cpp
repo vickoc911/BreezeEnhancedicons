@@ -849,7 +849,21 @@ namespace Breeze
                 {
                     if (!d || d->internalSettings()->macOSButtons()) {
                         QLinearGradient grad(QPointF(9, 2), QPointF(9, 16));
-                        if (d && qGray(d->titleBarColor().rgb()) < 128)
+                        if (d && qGray(d->titleBarColor().rgb()) > 100)
+                        {
+                            grad.setColorAt(0, isInactive ? inactiveCol
+                            : QColor(255, 92, 87));
+                            grad.setColorAt(1, isInactive ? inactiveCol
+                            : QColor(233, 84, 79));
+                        }
+                        else
+                        {
+                            grad.setColorAt(0, isInactive ? inactiveCol
+                            : QColor(250, 100, 102));
+                            grad.setColorAt(1, isInactive ? inactiveCol
+                            : QColor(230, 92, 94));
+                        }
+                  /*      if (d && qGray(d->titleBarColor().rgb()) < 128)
                         {
                             grad.setColorAt(0, isInactive ? inactiveCol
                             : QColor(255, 74, 64));
@@ -862,18 +876,18 @@ namespace Breeze
                             : QColor(255, 74, 64));
                             grad.setColorAt(1, isInactive ? inactiveCol
                             : QColor(255, 74, 64));
-                        }
+                        }*/
 
                         QColor baseColor;
-                        baseColor = QColor(255, 74, 64);
+                        baseColor = grad.colorAt(0.0);
 
                         QRectF r(2,2, 14, 14);
 
                         // --- Degradado principal (radial invertido) ---
                         QRadialGradient base(r.center(), r.width()/2, QPointF(r.center().x(), r.bottom()));
-                        base.setColorAt(0.0, baseColor.lighter(100));   // parte baja brillante
+                        base.setColorAt(0.0, baseColor.lighter(120));   // parte baja brillante
                         base.setColorAt(0.6, baseColor);
-                        base.setColorAt(1.0, baseColor.darker(140));    // borde oscuro
+                        base.setColorAt(1.0, baseColor.darker(120));    // borde oscuro
                         painter->setBrush(base);
                         painter->setPen(QColor(0,0,0,80));
                         painter->drawEllipse(r);
@@ -895,10 +909,18 @@ namespace Breeze
                         painter->setPen(Qt::NoPen);
                         painter->drawEllipse(r);
 
+                        // --- Bisel interior claro ---
+                        QRadialGradient innerHighlight(r.center(), r.width()/2, r.center());
+                        innerHighlight.setColorAt(0.0, QColor(255, 255, 255, 80));
+                        innerHighlight.setColorAt(1.0, QColor(255, 255, 255, 0));
+                        p.setBrush(innerHighlight);
+                        p.setPen(Qt::NoPen);
+                        p.drawEllipse(r.adjusted(2, 2, -2, -2));
+
                         if (backgroundColor.isValid())
                         {
                             QColor baseColor;
-                            baseColor = QColor(255, 74, 64);
+                            baseColor = grad.colorAt(0.0);
 
                             QRectF r(0,0, 18, 18);
 
