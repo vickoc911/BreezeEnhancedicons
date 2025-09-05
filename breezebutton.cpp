@@ -889,9 +889,9 @@ namespace Breeze
 
                         // --- Degradado principal (radial invertido) ---
                         QRadialGradient base(r.center(), r.width()/2, QPointF(r.center().x(), r.bottom()));
-                        base.setColorAt(0.0, baseColor.lighter(120));   // parte baja brillante
+                        base.setColorAt(0.0, baseColor.lighter(110));   // parte baja brillante
                         base.setColorAt(0.6, baseColor);
-                        base.setColorAt(1.0, baseColor.darker(120));    // borde oscuro
+                        base.setColorAt(1.0, baseColor.darker(110));    // borde oscuro
                         painter->setBrush(base);
                         painter->setPen(QColor(0,0,0,80));
                         painter->drawEllipse(r);
@@ -935,9 +935,9 @@ namespace Breeze
 
                             // --- Degradado principal (radial invertido) ---
                             QRadialGradient base(r.center(), r.width()/2, QPointF(r.center().x(), r.bottom()));
-                            base.setColorAt(0.0, baseColor.lighter(120));   // parte baja brillante
+                            base.setColorAt(0.0, baseColor.lighter(110));   // parte baja brillante
                             base.setColorAt(0.6, baseColor);
-                            base.setColorAt(1.0, baseColor.darker(120));    // borde oscuro
+                            base.setColorAt(1.0, baseColor.darker(110));    // borde oscuro
                             painter->setBrush(base);
                             painter->setPen(QColor(0,0,0,80));
                             painter->drawEllipse(r);
@@ -1031,9 +1031,9 @@ namespace Breeze
 
                         // --- Degradado principal (radial invertido) ---
                         QRadialGradient base(r.center(), r.width()/2, QPointF(r.center().x(), r.bottom()));
-                        base.setColorAt(0.0, baseColor.lighter(120));   // parte baja brillante
+                        base.setColorAt(0.0, baseColor.lighter(110));   // parte baja brillante
                         base.setColorAt(0.6, baseColor);
-                        base.setColorAt(1.0, baseColor.darker(120));    // borde oscuro
+                        base.setColorAt(1.0, baseColor.darker(110));    // borde oscuro
                         painter->setBrush(base);
                         painter->setPen(QColor(0,0,0,80));
                         painter->drawEllipse(r);
@@ -1058,7 +1058,7 @@ namespace Breeze
                         // --- Bisel interior claro ---
                         QRectF highlightRectb(r.left()+4, r.bottom()-3, r.width()-4, 2);
                         QRadialGradient innerHighlight(r.center(), r.width()/2, r.center());
-                        innerHighlight.setColorAt(0.0, QColor(255, 255, 255, 80));
+                        innerHighlight.setColorAt(0.0, QColor(255, 255, 255, 120));
                         innerHighlight.setColorAt(1.0, QColor(255, 255, 255, 0));
                         painter->setBrush(innerHighlight);
                         painter->setPen(Qt::NoPen);
@@ -1071,9 +1071,9 @@ namespace Breeze
 
                             // --- Degradado principal (radial invertido) ---
                             QRadialGradient base(r.center(), r.width()/2, QPointF(r.center().x(), r.bottom()));
-                            base.setColorAt(0.0, baseColor.lighter(120));   // parte baja brillante
+                            base.setColorAt(0.0, baseColor.lighter(110));   // parte baja brillante
                             base.setColorAt(0.6, baseColor);
-                            base.setColorAt(1.0, baseColor.darker(120));    // borde oscuro
+                            base.setColorAt(1.0, baseColor.darker(110));    // borde oscuro
                             painter->setBrush(base);
                             painter->setPen(QColor(0,0,0,80));
                             painter->drawEllipse(r);
@@ -1098,7 +1098,7 @@ namespace Breeze
                             // --- Bisel interior claro ---
                             QRectF highlightRectb(r.left()+4, r.bottom()-3, r.width()-4, 2);
                             QRadialGradient innerHighlight(r.center(), r.width()/2, r.center());
-                            innerHighlight.setColorAt(0.0, QColor(255, 255, 255, 80));
+                            innerHighlight.setColorAt(0.0, QColor(255, 255, 255, 120));
                             innerHighlight.setColorAt(1.0, QColor(255, 255, 255, 0));
                             painter->setBrush(innerHighlight);
                             painter->setPen(Qt::NoPen);
@@ -1192,9 +1192,9 @@ namespace Breeze
 
                         // --- Degradado principal (radial invertido) ---
                         QRadialGradient base(r.center(), r.width()/2, QPointF(r.center().x(), r.bottom()));
-                        base.setColorAt(0.0, baseColor.lighter(120));   // parte baja brillante
+                        base.setColorAt(0.0, baseColor.lighter(110));   // parte baja brillante
                         base.setColorAt(0.6, baseColor);
-                        base.setColorAt(1.0, baseColor.darker(120));    // borde oscuro
+                        base.setColorAt(1.0, baseColor.darker(110));    // borde oscuro
                         painter->setBrush(base);
                         painter->setPen(QColor(0,0,0,80));
                         painter->drawEllipse(r);
@@ -1219,7 +1219,7 @@ namespace Breeze
                         // --- Bisel interior claro ---
                         QRectF highlightRectb(r.left()+4, r.bottom()-2, r.width()-4, 2);
                         QRadialGradient innerHighlight(r.center(), r.width()/2, r.center());
-                        innerHighlight.setColorAt(0.0, QColor(255, 255, 255, 80));
+                        innerHighlight.setColorAt(0.0, QColor(255, 255, 255, 120));
                         innerHighlight.setColorAt(1.0, QColor(255, 255, 255, 0));
                         painter->setBrush(innerHighlight);
                         painter->setPen(Qt::NoPen);
@@ -1232,9 +1232,9 @@ namespace Breeze
 
                             // --- Degradado principal (radial invertido) ---
                             QRadialGradient base(r.center(), r.width()/2, QPointF(r.center().x(), r.bottom()));
-                            base.setColorAt(0.0, baseColor.lighter(120));   // parte baja brillante
+                            base.setColorAt(0.0, baseColor.lighter(110));   // parte baja brillante
                             base.setColorAt(0.6, baseColor);
-                            base.setColorAt(1.0, baseColor.darker(120));    // borde oscuro
+                            base.setColorAt(1.0, baseColor.darker(110));    // borde oscuro
                             painter->setBrush(base);
                             painter->setPen(QColor(0,0,0,80));
                             painter->drawEllipse(r);
@@ -1259,7 +1259,7 @@ namespace Breeze
                             // --- Bisel interior claro ---
                             QRectF highlightRectb(r.left()+4, r.bottom()-2, r.width()-4, 2);
                             QRadialGradient innerHighlight(r.center(), r.width()/2, r.center());
-                            innerHighlight.setColorAt(0.0, QColor(255, 255, 255, 80));
+                            innerHighlight.setColorAt(0.0, QColor(255, 255, 255, 120));
                             innerHighlight.setColorAt(1.0, QColor(255, 255, 255, 0));
                             painter->setBrush(innerHighlight);
                             painter->setPen(Qt::NoPen);
