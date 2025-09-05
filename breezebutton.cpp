@@ -916,7 +916,7 @@ namespace Breeze
                         // --- Bisel interior claro ---
                         QRectF highlightRectb(r.left()+4, r.bottom()-3, r.width()-4, 2);
                         QRadialGradient innerHighlight(r.center(), r.width()/2, r.center());
-                        innerHighlight.setColorAt(0.0, QColor(255, 255, 255, 80));
+                        innerHighlight.setColorAt(0.0, QColor(255, 255, 255, 120));
                         innerHighlight.setColorAt(1.0, QColor(255, 255, 255, 0));
                         painter->setBrush(innerHighlight);
                         painter->setPen(Qt::NoPen);
@@ -962,7 +962,7 @@ namespace Breeze
                             // --- Bisel interior claro ---
                             QRectF highlightRectb(r.left()+4, r.bottom()-3, r.width()-4, 2);
                             QRadialGradient innerHighlight(r.center(), r.width()/2, r.center());
-                            innerHighlight.setColorAt(0.0, QColor(255, 255, 255, 80));
+                            innerHighlight.setColorAt(0.0, QColor(255, 255, 255, 120));
                             innerHighlight.setColorAt(1.0, QColor(255, 255, 255, 0));
                             painter->setBrush(innerHighlight);
                             painter->setPen(Qt::NoPen);
