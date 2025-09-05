@@ -591,7 +591,7 @@ namespace Breeze
         }
 
         // render mark
-        const QColor foregroundColor(this->foregroundColor());
+        const QColor foregroundColor(this->foregroundColor(Qt::gray));
         if (foregroundColor.isValid()) {
             // setup painter
             QPen pen(foregroundColor);
