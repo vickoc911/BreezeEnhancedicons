@@ -879,7 +879,12 @@ namespace Breeze
                         }*/
 
                         QColor baseColor;
-                        baseColor = grad.colorAt(0.0);
+
+                        if ( !isInactive && qGray(titleBarColor.rgb()) < 128 )
+                            baseColor = QColor(255, 92, 87);
+                        else if( isInactive )
+                            baseColor = inactiveCol;
+                      //  baseColor = grad.colorAt(0.0);
 
                         QRectF r(2,2, 14, 14);
 
@@ -920,7 +925,11 @@ namespace Breeze
                         if (backgroundColor.isValid())
                         {
                             QColor baseColor;
-                            baseColor = grad.colorAt(0.0);
+
+                            if ( !isInactive && qGray(titleBarColor.rgb()) < 128 )
+                                baseColor = QColor(255, 92, 87);
+                            else if( isInactive )
+                                baseColor = inactiveCol;
 
                             QRectF r(0,0, 18, 18);
 
