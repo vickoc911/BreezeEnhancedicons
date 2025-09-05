@@ -880,7 +880,7 @@ namespace Breeze
 
                         QColor baseColor;
 
-                        if ( !isInactive && qGray(d->titleBarColor().rgb()) > 100 )
+                        if ( !isInactive && qGray(d->titleBarColor().rgb()) < 128 )
                             baseColor = QColor(255, 92, 87);
                         else if( isInactive )
                             baseColor = inactiveCol;
@@ -915,13 +915,13 @@ namespace Breeze
                         painter->drawEllipse(r);
 
                         // --- Bisel interior claro ---
-                        QRectF highlightRect(r.left()+4, r.bottom()-2, r.width()-4, 2);
+                        QRectF highlightRectb(r.left()+4, r.bottom()-2, r.width()-4, 2);
                         QRadialGradient innerHighlight(r.center(), r.width()/2, r.center());
                         innerHighlight.setColorAt(0.0, QColor(255, 255, 255, 80));
                         innerHighlight.setColorAt(1.0, QColor(255, 255, 255, 0));
                         painter->setBrush(innerHighlight);
                         painter->setPen(Qt::NoPen);
-                        painter->drawEllipse(highlightRect);
+                        painter->drawEllipse(highlightRectb);
 
                         if (backgroundColor.isValid())
                         {
