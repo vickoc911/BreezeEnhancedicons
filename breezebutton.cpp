@@ -917,7 +917,7 @@ namespace Breeze
                         QRectF highlightRectb(r.left()+2, r.top()+r.height()/1.9, r.width()-4, r.height()/2.2);
                         QRadialGradient innerHighlight(r.center(), r.width()/2, r.center());
                         innerHighlight.setColorAt(0.0, QColor(255, 255, 255, 0));
-                        innerHighlight.setColorAt(1.0, QColor(255, 255, 255, 120));
+                        innerHighlight.setColorAt(1.0, QColor(255, 255, 255, 50));
                         painter->setBrush(innerHighlight);
                         painter->setPen(Qt::NoPen);
                         painter->drawEllipse(highlightRectb);
@@ -963,7 +963,7 @@ namespace Breeze
                             QRectF highlightRectb(r.left()+2, r.top()+r.height()/1.9, r.width()-4, r.height()/2.2);
                             QRadialGradient innerHighlight(r.center(), r.width()/2, r.center());
                             innerHighlight.setColorAt(0.0, QColor(255, 255, 255, 0));
-                            innerHighlight.setColorAt(1.0, QColor(255, 255, 255, 120));
+                            innerHighlight.setColorAt(1.0, QColor(255, 255, 255, 50));
                             painter->setBrush(innerHighlight);
                             painter->setPen(Qt::NoPen);
                             painter->drawEllipse(highlightRectb);
